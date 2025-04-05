@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Disease Detection</title>
+    
+    <!-- Bootstrap CSS (Replit theme) -->
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-leaf me-2"></i>
+                Crop Disease Detection
+            </a>
+        </div>
+    </nav>
+    
+    <main class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <!-- Introduction Card -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fas fa-seedling me-2"></i>Crop Disease Detection</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="lead">
+                            Upload an image of your crop to detect and identify potential diseases. 
+                            Our tool uses advanced AI to analyze your crop's health and provide insights.
+                        </p>
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Supported formats: JPG, JPEG, PNG, BMP
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Section -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="h5"><i class="fas fa-upload me-2"></i>Upload Image</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="uploadForm" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <div class="upload-area" id="uploadArea">
+                                    <div class="text-center p-5 rounded border border-2 border-dashed mb-3" id="dropZone">
+                                        <div class="py-4">
+                                            <i class="fas fa-cloud-upload-alt fa-3x mb-3"></i>
+                                            <p class="mb-2">Drag & drop an image or click to browse</p>
+                                            <p class="text-muted small">Maximum file size: 10MB</p>
+                                        </div>
+                                        <input type="file" id="imageInput" name="image" class="d-none" accept="image/jpeg,image/png,image/bmp">
+                                    </div>
+                                </div>
+                                <div id="imagePreviewContainer" class="d-none text-center">
+                                    <div class="position-relative d-inline-block">
+                                        <img id="imagePreview" class="img-fluid rounded mb-3 max-preview-height" src="" alt="Preview">
+                                        <button type="button" id="removeImage" class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                    <div class="mb-3">
+                                        <span class="badge bg-secondary" id="fileInfo"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" id="detectButton" class="btn btn-primary" disabled>
+                                    <i class="fas fa-search me-2"></i>Detect Disease
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Loading Indicator -->
+                <div id="loadingSection" class="card mb-4 d-none">
+                    <div class="card-body text-center py-5">
+                        <div class="spinner-border text-primary mb-3" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <h4>Analyzing your crop image...</h4>
+                        <p class="text-muted">This may take a few seconds</p>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div id="resultsSection" class="card mb-4 d-none">
+                    <div class="card-header">
+                        <h3 class="h5"><i class="fas fa-clipboard-list me-2"></i>Detection Results</h3>
+                    </div>
+                    <div class="card-body" id="resultsContent">
+                        <!-- Results will be injected here -->
+                    </div>
+                </div>
+
+                <!-- Error Section -->
+                <div id="errorSection" class="card mb-4 d-none">
+                    <div class="card-header bg-danger text-white">
+                        <h3 class="h5"><i class="fas fa-exclamation-triangle me-2"></i>Error</h3>
+                    </div>
+                    <div class="card-body" id="errorContent">
+                        <!-- Error message will be injected here -->
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-secondary" id="tryAgainButton">
+                            <i class="fas fa-redo me-2"></i>Try Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer mt-auto py-3 bg-dark">
+        <div class="container text-center">
+            <span class="text-muted">© 2023 Crop Disease Detection Tool</span>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

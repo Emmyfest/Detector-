@@ -1,0 +1,94 @@
+/* Custom styles for the Crop Disease Detection Tool */
+
+/* Make the body take up full height for better layout */
+html, body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Image preview styling */
+.max-preview-height {
+    max-height: 300px;
+    object-fit: contain;
+}
+
+/* Styling for the drop zone */
+#dropZone {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--bs-dark);
+}
+
+#dropZone:hover, #dropZone.drag-over {
+    background-color: var(--bs-gray-800);
+    border-color: var(--bs-primary) !important;
+}
+
+/* Result bar chart styling */
+.confidence-bar {
+    height: 20px;
+    border-radius: 4px;
+    background-color: var(--bs-primary);
+    transition: width 0.5s ease-in-out;
+}
+
+/* Card transitions */
+.card {
+    transition: all 0.3s ease;
+}
+
+/* Make lists in results more readable */
+#resultsContent ul {
+    padding-left: 1.2rem;
+}
+
+#resultsContent li {
+    margin-bottom: 0.5rem;
+}
+
+/* Add slight spacing around cards */
+.card {
+    margin-bottom: 1.5rem;
+}
+
+/* Progress bars and result display */
+.disease-result {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    background-color: var(--bs-gray-800);
+}
+
+.disease-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.confidence-label {
+    font-size: 0.875rem;
+    color: var(--bs-gray-500);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .disease-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .confidence-label {
+        margin-top: 0.25rem;
+    }
+}
